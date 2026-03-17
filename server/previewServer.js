@@ -91,7 +91,8 @@ app.get('*', (req, res) => {
   res.type('txt').send('Not found.');
 });
 
-app.listen(process.env.PREVIEW_PORT, (error) => {
+const host = process.env.PREVIEW_HOST || process.env.HOST || undefined;
+app.listen(process.env.PREVIEW_PORT, host, (error) => {
   if (!error) {
     console.log(
       `p5.js Preview Server is running on port: ${process.env.PREVIEW_PORT}`

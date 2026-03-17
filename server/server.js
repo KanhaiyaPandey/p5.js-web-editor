@@ -210,7 +210,8 @@ app.use((error, req, res, next) => {
 });
 
 // start app
-app.listen(process.env.PORT, (error) => {
+const host = process.env.HOST || undefined;
+app.listen(process.env.PORT, host, (error) => {
   if (!error) {
     console.log(`p5.js Web Editor is running on port: ${process.env.PORT}!`); // eslint-disable-line
   }
